@@ -35,8 +35,6 @@ public class Movies {
 
 			}
 			
-			
- 
 		
 	public void createTable() {
 		String sql= "CREATE TABLE MOVIES " +
