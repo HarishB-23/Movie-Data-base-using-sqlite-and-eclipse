@@ -17,7 +17,7 @@ import java.sql.Statement;        //executing a SQL statement
 
 public class Movies {
 
-	public static Connection connect() { 
+	private Connection connect() { 
 		Connection conn=null;
 			
 		try
