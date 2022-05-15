@@ -7,7 +7,7 @@ Pre-requisite:
 2.Eclipse
 3.sqlite-jdbc connector
 
-#Goals:
+**Goals:**
 
 1).Connect to the SQLite database(or any Database you know):
 Learn how to download SQLiteJDBC driver and connect to an existing SQLite database using JDBC.
@@ -21,7 +21,9 @@ Learn how to download SQLiteJDBC driver and connect to an existing SQLite databa
 5).Querying data from Movies table with or without parameters – after having the movies data in the table, you need to query the movie details (name, actor, actress, director, year of release) using a SELECT statement. You will need to write a program to issue a simple SELECT statement to query all rows from the Movies table, as well as use a query with parameter like actor name to select movies based on the actor's name.
 
 In order to work with the SQLite database, we should have an SQLite-driver as a library in the IDE.
-Libraries/packages needed:
+
+**Libraries/packages needed:**
+
 import java.sql.Connection; //needed for connection
 import java.sql.DriverManager; // for establishing connection and loading
 import java.sql.PreparedStatement; //this represents a precompiled SQL statement.
@@ -29,7 +31,8 @@ import java.sql.ResultSet; //representing a database result set, which is usuall
 import java.sql.SQLException; //database access error or other errors represented using the getMessage().
 import java.sql.Statement; //executing a SQL statement.
 
-or we can just,
+or **we can just,**
+
 import java.sql.*; // here by which we can import all the modules needed.
 Connect to SQLite Database
 Use the following code to connect to SQLite database using Java programming language:
@@ -44,8 +47,12 @@ catch(SQLException | ClassNotFoundException e)        {            System.err.pr
 }        
 return conn; 
 }
-Create a table using java
+
+
+**Create a table using java**
 Let's create a table named "Movies" having columns "ID"."NAME","ACTOR","ACTRESS","DIRECTOR" and "YEAROFRELEASE". Create a class name "CreateTable", having the following code:
+
+
 public void createTable() 
 {  
 String sql= "CREATE TABLE MOVIES " +                
@@ -65,8 +72,12 @@ catch (SQLException e) {
 System.out.println(e.getMessage());    
    }  
 }
-Insert Record in the table
+
+
+**Insert Record in the table:**
 After the creation of the table, use the following code to insert some records in the table and assign some variable to be as reference. Create a new class "insert", having the following code:
+
+
 public void insert (int id,String name,String actor,String actress,String director,String year) 
 {  
 String info ="INSERT INTO MOVIES(ID, NAME,ACTOR,ACTRESS,DIRECTOR,YEAROFRELEASE) VALUES(?,?,?,?,?,?)";   
@@ -85,12 +96,19 @@ catch (SQLException e)
 System.out.println(e.getMessage());  
   } 
 }
-Select Records
+
+
+**Select Records**
+
 1). To select records from the table, use the following code. Create a new class "selectAll()", having the following data.
 "Querying data from Movies table with or without parameters - after having the movies data in the table, you need to query the movie details (name, actor, actress, director, year of release) using a SELECT statement."
-SQL query:
+
+*SQL query:*
+
 SELECT * FROM MOVIES;
-Below is the code for the following,
+
+           Below is the code for the following,
+
 public void selectAll()     
 {         
 try        
@@ -116,12 +134,17 @@ catch (SQLException e)
 System.out.println(e.getMessage());       
     }     
 }
+
 2. To select records from the table, use the following code. Create a new class "selectparam()", having the following data.
 "You will need to write a program to issue a simple SELECT statement to query all rows from the Movies table, as well as use a query with parameter like actor name to select movies based on the actor's name."
 here we have used the actor Yash name to show the details,
-SQL query:
+
+*SQL query:*
+
 SELECT NAME FROM MOVIES WHERE ACTOR='YASH';
-Below is the code for the following,
+
+       Below is the code for the following,
+       
 public void selectparam()     
 {         
 try        
@@ -141,14 +164,15 @@ catch (SQLException e)
 System.out.println(e.getMessage());        
 }     
 }
-Insert Values into table:
+
+
+""Insert Values into table:""
+
 After the creation of the table, use the following code to insert some value into table called "Movies". Create a new object for the class Movies, having the following code:
+
 public static void main (String[] args) {  
 Movies list =new Movies(); //creating an object of the class Movies        list.createTable();        list.insert(1,"SAAHO","PRABHAS","SHRADDHA","SUJEETH","2019");       list.insert(2,"URI","VICKY","YAMI","ADITYA","2019");       list.insert(3,"KGF2","YASH","SRINIDHI","PRASHANTH","2022");        list.insert(4,"SPIDER MAN NO WAY HOME","TOM HOLLAND","ZENDAYA","JOHN WATTS","2021");        
 list.selectAll();        
 list.selectparam(); 
   } 
 }
-Thanks for reading ………
-For the whole code visit my GitHub account:
-Movie-Data-base-using-sqlite-and-eclipse/Movies.java at master · HarishB-23/Movie-Data-base-using-sqlite-and-eclipse (github.com)
